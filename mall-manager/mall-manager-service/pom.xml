@@ -7,13 +7,14 @@
   </parent>
   <artifactId>mall-manager-service</artifactId>
   
+  
   <dependencies>
- 	<dependency>
-  		<groupId>com.ren</groupId>
-    	<artifactId>mall-manager-mapper</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  	<!-- Spring -->
+		 	<dependency>
+		  		<groupId>com.ren</groupId>
+		    	<artifactId>mall-manager-mapper</artifactId>
+		    	<version>0.0.1-SNAPSHOT</version>
+		  	</dependency>
+  			<!-- Spring -->
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
