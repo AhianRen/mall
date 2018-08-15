@@ -1,5 +1,6 @@
 package com.mall.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.mall.common.pojo.EUDataGridResult;
+import com.mall.common.pojo.MallResult;
+import com.mall.common.utils.IDUtils;
 import com.mall.mapper.TbItemMapper;
 import com.mall.pojo.TbItem;
 import com.mall.pojo.TbItemExample;
@@ -42,6 +45,21 @@ public class ItemServiceImpl implements ItemService {
 		PageInfo<TbItem> pageInfo = new PageInfo<>(list);
 		result.setTotal(pageInfo.getTotal());
 		return result;
+	}
+	
+	@Override
+	public MallResult addItem(TbItem item) {
+		
+		item.setId(IDUtils.genItemId());
+		item.setStatus((byte) 1);
+		item.setCreated(new Date());
+		
+		//TODO
+		
+		
+		
+		
+		return null;
 	}
 
 }
