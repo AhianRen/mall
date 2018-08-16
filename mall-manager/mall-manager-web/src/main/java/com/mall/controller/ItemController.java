@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mall.common.pojo.EUDataGridResult;
+import com.mall.common.pojo.MallResult;
 import com.mall.pojo.TbItem;
 import com.mall.service.ItemService;
 /**
@@ -33,4 +34,9 @@ public class ItemController {
 		return result;
 	}
 	
+	@RequestMapping("/item/save")
+	@ResponseBody
+	public MallResult addItem(TbItem item) {
+		return itemService.addItem(item);
+	}
 }

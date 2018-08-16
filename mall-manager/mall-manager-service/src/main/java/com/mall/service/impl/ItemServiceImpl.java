@@ -46,20 +46,20 @@ public class ItemServiceImpl implements ItemService {
 		result.setTotal(pageInfo.getTotal());
 		return result;
 	}
-	
+	/**
+	 * 商品添加
+	 */
 	@Override
 	public MallResult addItem(TbItem item) {
 		
+		//补全TbItem
 		item.setId(IDUtils.genItemId());
 		item.setStatus((byte) 1);
 		item.setCreated(new Date());
+		item.setUpdated(new Date());
+		itemMapper.insert(item);
 		
-		//TODO
-		
-		
-		
-		
-		return null;
+		return MallResult.ok();
 	}
 
 }
