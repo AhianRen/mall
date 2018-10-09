@@ -26,7 +26,12 @@ public class ItemController {
 	public TbItem getItemById(@PathVariable Long itemId) {
 		return itemService.getItemById(itemId);
 	}
-	
+	/**
+	 * 获取商品列表
+	 * @param page
+	 * @param rows
+	 * @return
+	 */
 	@RequestMapping("/item/list")
 	@ResponseBody
 	public EUDataGridResult getItemList(Integer page,Integer rows) {
@@ -36,7 +41,7 @@ public class ItemController {
 	
 	@RequestMapping("/item/save")
 	@ResponseBody
-	public MallResult addItem(TbItem item) {
-		return itemService.addItem(item);
+	public MallResult addItem(TbItem item,String desc) {
+		return itemService.addItem(item,desc);
 	}
 }

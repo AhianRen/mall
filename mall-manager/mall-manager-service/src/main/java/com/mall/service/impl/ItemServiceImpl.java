@@ -11,8 +11,10 @@ import com.github.pagehelper.PageInfo;
 import com.mall.common.pojo.EUDataGridResult;
 import com.mall.common.pojo.MallResult;
 import com.mall.common.utils.IDUtils;
+import com.mall.mapper.TbItemDescMapper;
 import com.mall.mapper.TbItemMapper;
 import com.mall.pojo.TbItem;
+import com.mall.pojo.TbItemDesc;
 import com.mall.pojo.TbItemExample;
 import com.mall.service.ItemService;
 /**
@@ -26,6 +28,8 @@ public class ItemServiceImpl implements ItemService {
 	@Autowired
 	private TbItemMapper itemMapper;
 	
+	@Autowired
+	private TbItemDescMapper itemDescMapper;
 	
 	@Override
 	public TbItem getItemById(Long id) {
@@ -50,15 +54,23 @@ public class ItemServiceImpl implements ItemService {
 	 * 商品添加
 	 */
 	@Override
-	public MallResult addItem(TbItem item) {
+	public MallResult addItem(TbItem item,String desc) {
 		
+		Date date = new Date();
 		//补全TbItem
 		item.setId(IDUtils.genItemId());
 		item.setStatus((byte) 1);
-		item.setCreated(new Date());
-		item.setUpdated(new Date());
+		item.setCreated(date);
+		item.setUpdated(date);
 		itemMapper.insert(item);
 		
+		TbItemDesc tbItemDesc = new TbItemDesc();
+		tbItemDesc.setItemId(item.getId());
+		tbItemDesc.setItemDesc(desc);
+		tbItemDesc.setCreated(date);
+		tbItemDesc.setUpdated(date);
+		
+		itemDescMapper.insert(tbItemDesc);
 		return MallResult.ok();
 	}
 
