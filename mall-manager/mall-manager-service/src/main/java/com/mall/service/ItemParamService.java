@@ -1,5 +1,6 @@
 package com.mall.service;
 
+import com.mall.common.pojo.EUDataGridResult;
 import com.mall.common.pojo.MallResult;
 import com.mall.pojo.TbItemParam;
 
@@ -16,6 +17,13 @@ public interface ItemParamService {
 	 * @return
 	 */
 	public MallResult insertItemParam(TbItemParam itemParam);
+	/**
+	 * 根据分页信息获取商品规格参数
+	 * @param page
+	 * @param rows
+	 * @return
+	 */
+	EUDataGridResult getItemParamList(int page, int rows);
 	
 	
 	

@@ -5,6 +5,16 @@ import java.util.List;
 public class EUDataGridResult {
 	private Long total;
 	private List<?> rows;
+	
+	
+	public EUDataGridResult(Long total, List<?> rows) {
+		super();
+		this.total = total;
+		this.rows = rows;
+	}
+	public EUDataGridResult() {
+		super();
+	}
 	public Long getTotal() {
 		return total;
 	}
