@@ -12,6 +12,7 @@ import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
+import org.apache.log4j.Logger;
 
 /**
  * ftp上传下载工具类
@@ -23,7 +24,7 @@ import org.apache.commons.net.ftp.FTPReply;
  * @version 1.0
  */
 public class FtpUtil {
-
+	private static final Logger logger = Logger.getLogger(FtpUtil.class);
 	/** 
 	 * Description: 向FTP服务器上传文件 
 	 * @param host FTP服务器hostname 
@@ -67,6 +68,7 @@ public class FtpUtil {
 					}
 				}
 			}
+			ftp.enterLocalPassiveMode();
 			//设置上传文件的类型为二进制类型
 			ftp.setFileType(FTP.BINARY_FILE_TYPE);
 			//上传文件
@@ -76,6 +78,7 @@ public class FtpUtil {
 			input.close();
 			ftp.logout();
 			result = true;
+			logger.info("图片上传成功："+host+":"+port+basePath+File.separator+filePath+File.separator+filename);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -143,8 +146,8 @@ public class FtpUtil {
 	
 	public static void main(String[] args) {
 		try {  
-	        FileInputStream in=new FileInputStream(new File("D:\\temp\\image\\gaigeming.jpg"));  
-	        boolean flag = uploadFile("192.168.25.133", 21, "ftpuser", "ftpuser", "/home/ftpuser/www/images","/2015/01/21", "gaigeming.jpg", in);  
+	        FileInputStream in=new FileInputStream(new File("D:\\000.jpg"));  
+	        boolean flag = uploadFile("39.105.179.1", 21, "ftpuser01", "ftpuser01", "/home/ftpuser01/www/images01","/2018/01/21", "g.jpg", in);  
 	        System.out.println(flag);  
 	    } catch (FileNotFoundException e) {  
 	        e.printStackTrace();  

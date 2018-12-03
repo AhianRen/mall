@@ -1,7 +1,8 @@
 *.class
 target/
 !.mvn/wrapper/maven-wrapper.jar
-
+*.log
+*.log.*
 # package file
 *.war
 *.ear
