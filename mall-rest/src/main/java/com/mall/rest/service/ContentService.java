@@ -6,6 +6,6 @@ import com.mall.pojo.TbContent;
 
 public interface ContentService {
 
-	List<TbContent> getContentsByCatId(Long catId);
+	List<TbContent> getContentsByCatId(Long catId) throws Exception;
 
 }

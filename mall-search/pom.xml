@@ -1,17 +1,17 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>com.ren</groupId>
-		<artifactId>mall-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
-	<groupId>com.ren</groupId>
-	<artifactId>mall-rest</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
-
-	<dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.ren</groupId>
+    <artifactId>mall-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>com.ren</groupId>
+  <artifactId>mall-search</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  
+  <dependencies>
 		<dependency>
 			<groupId>com.ren</groupId>
 			<artifactId>mall-manager-mapper</artifactId>
@@ -43,11 +43,11 @@
 			<artifactId>servlet-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<!-- solr客户端 -->
 		<dependency>
-				<groupId>redis.clients</groupId>
-				<artifactId>jedis</artifactId>
+			<groupId>org.apache.solr</groupId>
+			<artifactId>solr-solrj</artifactId>
 		</dependency>
-		
 		
 	</dependencies>
 	
@@ -57,11 +57,36 @@
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<configuration>
-					<port>8081</port>
+					<port>8083</port>
 					<path>/</path>
 				</configuration>
 			</plugin>
 		</plugins>
+		<resources>
+	  		<resource>
+	  			<directory>src/main/java</directory>
+	  			<includes>
+	  				<include>**/*.properties</include>
+	  				<include>**/*.xml</include>
+	  			</includes>
+	  			<filtering>false</filtering>
+	  		</resource>
+	  		<resource>
+	  			<directory>src/main/resources</directory>
+	  			<includes>
+	  				<include>**/*.properties</include>
+	  				<include>**/*.xml</include>
+	  			</includes>
+	  			<filtering>false</filtering>
+	  		</resource>
+	  	</resources>
 	</build>
-
+  
+  
+  
+  
+  
+  
+  
+  
 </project>
